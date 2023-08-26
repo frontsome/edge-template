@@ -108,7 +108,7 @@ class Compiler {
    * Pre-compiles a template in order to use the view engine by passing its raw content
    * @param {string} src Template source
    * @returns The pre-compiled render module that is used to render the template as a string
-   * @memberof Sub
+   * @memberof Edge
    */
   precompile(src) {
 
@@ -126,7 +126,7 @@ class Compiler {
    * @param {Object[]} partials Array of already compiled partial files
    * @param {string} [filename] A string name that will be used as Node compiled module name. If omitted, random string is used
    * @returns The compiled render function that is used to render the template
-   * @memberof Sub
+   * @memberof Edge
    */
   async compile(raw, partials, opt = { filename: null, precompiled: null }) {
     const m = new module.constructor();
@@ -170,7 +170,7 @@ class Compiler {
    * @param {string} filename Template file name
    * @param {string[]} partials An array containing the file names of all partials needed for this template
    * @returns The compiled render function that is used to render the template
-   * @memberof Sub
+   * @memberof Edge
    */
   async compileFile(filename, partials) {
     if (partials != null)
@@ -188,7 +188,7 @@ class Compiler {
    * @param {string[]} partials An array containing the file names of all partials needed for this template
    * @param {string} [filename] Base template file name
    * @returns An array containing the partials as objects
-   * @memberof Sub
+   * @memberof Edge
    */
   async compilePartials(partials, filename, precompiled = false) {
     if (partials == null) return null;
@@ -241,10 +241,20 @@ class Compiler {
    * Pre-compiles a template in order to use the view engine by passing its file name
    * @param {string} filename Template file name
    * @returns The pre-compiled render function that is used to render the template as a string
-   * @memberof Sub
+   * @memberof Edge
    */
-  async precompileFile(filename) {
+  async renderFile(filename) {
     return this.precompile(readFileSync(filename)).toString());
+  }
+
+  /**
+   * Pre-compiles a template in order to use the view engine by passing its file name
+   * @param {string} string Template string
+   * @returns The pre-compiled render function that is used to render the template as a string
+   * @memberof Edge
+   */
+  async render(string) {
+    return this.precompile(string);
   }
 }
 
