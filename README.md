@@ -35,3 +35,32 @@ var result = template(data);
 
 ```
 
+## Template Syntax
+
+### echo
+
+```
+${data.something}
+```
+
+### if exists
+
+```
+$(data.something?){<b>${data.something}</b>}
+```
+
+### if doesn't exist
+
+```
+$(!data.something?){<b>Empty</b>}
+```
+
+### loops/foreach
+
+```
+$(data.names:name){<b>I'm ${name}</b>}
+```
+
+## Credits
+
+Based on on li-template by Patrick Pissurno.
