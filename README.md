@@ -1,4 +1,4 @@
-#edge-template
+# Edge Template
 
 ## The problem
 
