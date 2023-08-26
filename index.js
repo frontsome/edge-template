@@ -177,7 +177,7 @@ class Compiler {
       partials = await this.compilePartials(partials, filename);
 
     return await this.compile(
-      readFileSync(filename)).toString(),
+      readFileSync(filename).toString(),
       partials,
       filename
     );
@@ -243,8 +243,8 @@ class Compiler {
    * @returns The pre-compiled render function that is used to render the template as a string
    * @memberof Edge
    */
-  async renderFile(filename) {
-    return this.precompile(readFileSync(filename)).toString());
+  async compileFile(filename) {
+    return this.precompile(readFileSync(filename).toString());
   }
 
   /**
@@ -253,7 +253,7 @@ class Compiler {
    * @returns The pre-compiled render function that is used to render the template as a string
    * @memberof Edge
    */
-  async render(string) {
+  async compile(string) {
     return this.precompile(string);
   }
 }
