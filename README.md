@@ -9,25 +9,23 @@ Because ES-modules are compatible with any javascript environment, you can use t
 
 ## How to use
 
-1. first (pre)compile you template to esm (or to a template literal string). Typically you'd do this during your build step:
+1. first (pre)compile you template to esm. Typically you'd do this during your build step:
 
-```
+```js
 import edge from "edge-template"
 import * as fs from "fs"
 
 // compile
-let compiledEsm = await edge.compile("<h1>${data.title}</h1>", "esm");
+let compiledEsm = await edge.compile("<h1>${data.title}</h1>", "esm"); // or 'str' to render to string
+
 // save the file to disk, so you can import it in the next step
 fs.writeFileSync("./test.mjs", compiled, "utf8");
-
-// alternatively you can compile it to a template literal string
-let compiled = await edge.compile("<h1>${data.title}</h1>", "str");
 
 ```
 
 2. Now you can import the template, and render it with the data:
 
-```
+```js
 import template from "./test.mjs"
 
 const data = {
