@@ -110,13 +110,16 @@ class Compiler {
    * @returns The pre-compiled render module that is used to render the template as a string
    * @memberof Edge
    */
-  precompile(src) {
+  precompile(src, type) {
 
-    return `const MyComponent = function (data){ return \`${transpile(
-      `  ${src.replace(/\\\$\(/g, "\\$@(")}  `
-    ).replace(/\\\$@\(/g, "\\$(")}
-    \`; }; 
-    export default MyComponent;`;
+    const tpl = transpile(` ${src.replace(/\\\$\(/g, "\\$@(")}  `).replace(/\\\$@\(/g, "\\$(");
+
+    if(type=='esm'){
+      return `const MyComponent = function (data){ return \`${tpl}\`; }; 
+      export default MyComponent;`;
+    }else{
+      return tpl;
+    }
 
   }
 
@@ -243,8 +246,8 @@ class Compiler {
    * @returns The pre-compiled render function that is used to render the template as a string
    * @memberof Edge
    */
-  async compileFile(filename) {
-    return this.precompile(readFileSync(filename).toString());
+  async compileFile(filename, type='str') {
+    return this.precompile(readFileSync(filename).toString(), type);
   }
 
   /**
@@ -253,8 +256,10 @@ class Compiler {
    * @returns The pre-compiled render function that is used to render the template as a string
    * @memberof Edge
    */
-  async compile(string) {
-    return this.precompile(string);
+  async compile(string, type='str') {
+    
+      return this.precompile(string, type);
+    
   }
 }
 
