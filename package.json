@@ -1,16 +1,12 @@
 {
-  "name": "edge-template",
-  "version": "1.0.5",
+  "name": "@frontsome/edge-template",
+  "version": "1.0.0",
   "description": "Fast and simple template-engine for Edge Functions",
   "main": "index.js",
-  "type": "module",
+  "type":"module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "\"Gerben Schmidt\"",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/frontsome/edge-template.git"
-  }
+  "author": "frontsome",
+  "license": "MIT"
 }
