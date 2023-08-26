@@ -1,6 +1,6 @@
 {
   "name": "edge-template",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Fast and simple template-engine for Edge Functions",
   "main": "index.js",
   "type": "module",
