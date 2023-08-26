@@ -1,7 +1,7 @@
-import template from "./test.mjs"
+import template from "../test.mjs"
 
 const data = {
-    "title":"Hello Edge!"
+    "title":"Hello Edge!",
 }
 var result = template(data);
 

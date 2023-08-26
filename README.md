@@ -61,6 +61,16 @@ $(!data.something?){<b>Empty</b>}
 $(data.names:name){<b>I'm ${name}</b>}
 ```
 
+### if equals
+
+```
+${data.title == 'Hello Edge!' ? 'The condition is true' : 'The condition is false'}
+```
+
+### any valid javascript expression
+Inside ${} you can use any javascript expression you want. Functions, methods, properties, process.env...
+
+
 ## Credits
 
 Based on on li-template by Patrick Pissurno.
