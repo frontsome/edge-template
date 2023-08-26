@@ -1,6 +1,6 @@
 /**
  * based on li-template by Patrick Pissurno
- * converted to ES Module (that generates ES modules) by Gerben Schmidt
+ * converted to ES Module (that generates ES modules) by Frontsome
  * and is licensed under the MIT license.
  */
 
