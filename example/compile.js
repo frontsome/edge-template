@@ -1,4 +1,4 @@
-// import edge from "edge-template"
+// import edge from "@frontsome/edge-template"
 import edge from "../index.js"
 import * as fs from "fs"
 

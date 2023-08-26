@@ -12,7 +12,7 @@ Because ES-modules are compatible with any javascript environment, you can use t
 1. first (pre)compile you template to esm. Typically you'd do this during your build step:
 
 ```js
-import edge from "edge-template"
+import edge from "@frontsome/edge-template"
 import * as fs from "fs"
 
 // compile
